@@ -3,7 +3,8 @@ import React from 'react';
 const Features = () => {
     return (
         <div className='mt-14'>
-           <h2 className='text-5xl text-indigo-950 font-bold text-center'>We try to make your children happier <br /> with the best toys</h2>
+          <h2 className='text-center text-2xl font-bold text-orange-600'>About Us</h2>
+           <h2 className='text-5xl text-indigo-950 font-bold text-center'>We give your children happy moment<br /> with the best toys</h2>
            <div className='grid grid-cols-1 lg:grid-cols-4 lg:ms-12 mt-10'>
            <div className="card w-3/4 bg-base-100 shadow-xl">
   <figure><img src="https://png.pngtree.com/png-vector/20200407/ourmid/pngtree-shopping-bags-in-circle-for-online-store-png-image_2177917.jpg" alt="Shoes" /></figure>
