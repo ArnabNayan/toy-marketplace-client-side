@@ -34,7 +34,7 @@ const Register = () => {
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="w-1/2 lg:ml-20">
-             <img className='h-2/4 w-3/4' src="https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?w=2000" alt="" />
+             <img className='h-3/4 w-full' src="https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?w=2000" alt="" />
            
           </div>
        

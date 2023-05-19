@@ -19,7 +19,7 @@ const SocialLogin = () => {
              <div className="divider">OR</div>
              <h2 className='text-sm text-center mt-5 text-slate-950'>Sign in With</h2>
            <div className='text-center'>
-           <button className= "text-sky-500">
+           <button onClick={handleGoogleSignIn} className= "text-sky-500">
                <FaGoogle></FaGoogle>
             </button> 
            </div>
