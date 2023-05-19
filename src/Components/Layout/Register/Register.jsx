@@ -1,7 +1,35 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Register = () => {
+  const[error,setError]=useState('');
+  const {signUp}=useContext(AuthContext);
+
+  const handleSignUp=event=>{
+    event.preventDefault()
+    const form=event.target;
+    const name=form.name.value;
+    const email=form.email.value;
+    const password=form.password.value;
+    const photo=form.photo.value;
+    console.log(name,email,password,photo)
+    setError('')
+    
+    if(password.length<6){
+      setError('Your password must be at least 6 characters')
+      return
+  }
+
+    signUp(email,password)
+    .then(result=>{
+      const createdUser=result.user;
+      console.log(createdUser)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+  }
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -14,7 +42,7 @@ const Register = () => {
         
             <div className="card-body">
             <h1 className="text-5xl font-bold text-center text-orange-500">Register now!</h1>
-            <form>
+            <form onSubmit={handleSignUp}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -47,6 +75,7 @@ const Register = () => {
               </div>
               </form>
               <p className='text-center mt-4'>Already have an account?<Link className='text-lg text-indigo-700 font-bold' to='/login'>Login</Link></p>
+              <p className='text-red-500 text-lg'>{error}</p>
             </div>
           </div>
         </div>
