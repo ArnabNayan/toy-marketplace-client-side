@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
   const {logIn}=useContext(AuthContext)
@@ -53,6 +54,7 @@ const Login = () => {
               </div>
               </form>
               <p className='text-center mt-4'>New to toymarket?<Link className='text-lg text-indigo-700 font-bold' to='/register'>Register</Link></p>
+              <SocialLogin></SocialLogin>
             </div>
           </div>
         </div>
