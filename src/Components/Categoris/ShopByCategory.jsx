@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import Toy from '../Toy/Toy';
 
 const ShopByCategory = () => {
   const categories = [
@@ -56,8 +57,16 @@ const ShopByCategory = () => {
       ],
     },
   ];
-
+   const [toys,setToy]=useState([]);
   const [selectedCategory, setSelectedCategory] = useState(0);
+
+  useEffect(()=>{
+    fetch('http://localhost:5000/alltoys')
+    .then(res=>res.json())
+    .then(result=>{
+      console.log(result)
+    })
+  },[])
 
   const handleTabSelect = (index) => {
     setSelectedCategory(index);
@@ -98,6 +107,16 @@ const ShopByCategory = () => {
         ))}
       
       </Tabs>
+      <div className='mt-5 row'> 
+      {
+        toys?.map(toy=>{
+          <Toy toy={toy}></Toy>
+        })
+
+        }
+      
+
+      </div>
     </div>
   );
 };
