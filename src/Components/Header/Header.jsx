@@ -26,14 +26,18 @@ const Header = () => {
                 </div>
                 <div className='text-slate-900 flex flex-col lg:flex-row gap-5 lg:me-20  text-xl'>
                     <Link to='/'>Home</Link>
-                    <Link to='/login'>Login</Link>
+                    
                     <Link to='/blog'>Blog</Link>
                     <Link to='/alltoys'>All Toys</Link>
-                    <Link to='/mytoys'>My Toys</Link>
+                   
                     <Link to='/addtoy'>Add a toy</Link>
 
                     {
-                        user && <><button onClick={handleLogOut}>Sign Out</button> <img className="w-14 rounded-full lg:ms-36"src="/images/client3.png" /> </>
+                        user?.email ? <>
+                     <Link to='/mytoys'>My Toys</Link>
+                       <button onClick={handleLogOut}>Sign Out</button>  
+                        <img className="w-14 rounded-full lg:ms-36"src="/images/client3.png" /> </> :<Link to='/login'>Login</Link>
+                      
                     }
                 </div> 
 {/*               
