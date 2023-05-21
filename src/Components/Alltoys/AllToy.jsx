@@ -1,12 +1,9 @@
 import React from 'react';
 
-
 // eslint-disable-next-line react/prop-types
-const Mytoystable = ({toy,handleDelete,handleConfirm}) => {
+const AllToy = ({alltoy}) => {
     // eslint-disable-next-line react/prop-types
-    const {_id,name,subCategory,selleremail,quantity,rating,price,photo,status}=toy;
-
-   
+    const {name,subCategory,selleremail,quantity,rating,price,photo,status}=alltoy;
     return (
         <tr>
         <th>
@@ -33,13 +30,10 @@ const Mytoystable = ({toy,handleDelete,handleConfirm}) => {
         <td>{price}</td>
         <td>{rating}</td>
         <td>{quantity}</td>
-       {
-        status==='confirm'? <span className='font-bold text-secondary'>Confirmed status</span>:
-         <td><button onClick={()=>handleConfirm(_id)}  className="btn btn-success">Update</button></td>
-       }
-        <td><button onClick={()=>handleDelete(_id)} className="btn btn-error">Delete</button></td>
+     
+        <td><button className="btn btn-secondary">View details</button></td>
       </tr>
     );
 };
 
-export default Mytoystable;
+export default AllToy;
