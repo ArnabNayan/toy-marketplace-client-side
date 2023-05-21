@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import Mytoystable from './Mytoystable';
+import Swal from 'sweetalert2';
 
 const Mytoys = () => {
     const {user}=useContext(AuthContext)
@@ -12,10 +14,76 @@ const Mytoys = () => {
         
     },[user])
 
+  //   const handleDelete=id=>{
+  //     Swal.fire({
+  //       title: 'Are you sure?',
+  //       text: "You won't be able to revert this!",
+  //       icon: 'warning',
+  //       showCancelButton: true,
+  //       confirmButtonColor: '#3085d6',
+  //       cancelButtonColor: '#d33',
+  //       confirmButtonText: 'Yes, delete it!'
+  //     }).then((result) => {
+  //       if (result.isConfirmed) {
+  //         fetch(`http://localhost:5000/toys/${id}`,{
+  //             method:'DELETE'
+  //         })
+  //         .then(res=>res.json())
+  //         .then(data=>{
+  //             console.log(data)
+  //             if(data.deletedCount>=0){
+  //                 Swal.fire(
+  //                     'Deleted!',
+  //                     'Your toy has been deleted.',
+  //                     'success'
+  //                   )
+                
+  //                 const remaining=toys.filter(toyed=>toyed._id!==id)
+  //                 setToys(remaining)
+  //             }
+  //         })
+         
+  //       }
+  //     })
+  // }
+  const handleDelete = id => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/toys/${id}`, {
+          method: 'DELETE'
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if (data.deletedCount >= 0) {
+              Swal.fire(
+                'Deleted!',
+                'Your toy has been deleted.',
+                'success'
+              );
+              
+              const remaining = toys.filter(toy => toy._id !== id);
+              setToys(remaining);
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }
+    });
+  };
     return (
         <div className="overflow-x-auto w-full">
           <h2 className='text-3xl text-indigo-950 font-bold text-center mt-14'>My Selected Toys:{toys.length}</h2>
-  <table className="table w-full">
+  <table className="table w-full mt-14 bg ">
 
     <thead>
       <tr>
@@ -25,40 +93,22 @@ const Mytoys = () => {
           </label>
         </th>
        
-        <th>Name</th>
-        <th>Seller Name</th>
-        <th>Seller email</th>
+        <th>Name</th> 
+        <th>Selleremail</th>
         <th>Subcategory</th>
         <th>Price</th>
         <th>Rating</th>
         <th>Available Quantity</th>
+        <th>Status</th>
         <th>Action</th>
-        <th>Action</th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
-  {
-    toys.map(toy=>{
-        <tr>
-            <th scope='row'>1</th>
-           <td>1</td>
-                <td>hello</td>
-                <td>gello</td>
-                <td>khau</td>
-                <td>jau</td>
-                <td>khau</td>
-                <td>jau</td>
-                <td>khau</td>
-                <td>jau</td>
-      </tr>
-    })
-  }
-      
+  
+     {
+      toys.map(toy=><Mytoystable key={toy._id}toy={toy}handleDelete={handleDelete}></Mytoystable>)
+     }     
     </tbody>
-    
-    
-    
   </table>
 </div>
     );
