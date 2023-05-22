@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <>
-        <footer className="footer footer-center p-10 bg-slate-200 text-primary-content">
+        <footer className="footer footer-center p-10 bg-slate-200 text-primary-content mt-10">
   <div>
   <img className='w-28 h-24 rounded-full' src="https://www.shutterstock.com/shutterstock/photos/1093873355/display_1500/stock-vector-kids-fun-logo-vector-1093873355.jpg" alt="" />
   <a className="btn btn-ghost normal-case text-4xl font-bold text-red-600">Kids<span className='text-lime-700'>fun</span></a>

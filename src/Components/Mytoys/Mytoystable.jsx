@@ -111,7 +111,7 @@ const Mytoystable = ({toy,handleDelete}) => {
 
       {isFormOpen && (
         <td colSpan="2">
-          <form onSubmit={handleSubmitForm}>
+          <form className='w-full' onSubmit={handleSubmitForm}>
             {/* Add input fields or controls for updating the data */}
             <div className="form-control">
           <label className="label">
@@ -138,11 +138,12 @@ const Mytoystable = ({toy,handleDelete}) => {
           />
          
         </div>
-
-            <button type="submit">Save</button>
-            <button type="button" onClick={() => setIsFormOpen(false)}>
+            <div className='flex gap-6 mt-3'>
+            <button className='btn btn-active btn-primary' type="submit">Save</button>
+            <button className='btn btn-warning' type="button" onClick={() => setIsFormOpen(false)}>
               Cancel
             </button>
+            </div>
           </form>
         </td>
       )}

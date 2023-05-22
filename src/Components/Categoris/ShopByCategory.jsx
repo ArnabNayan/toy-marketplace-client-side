@@ -49,7 +49,7 @@ const ShopByCategory = () => {
       <div className='mt-5 grid grid-cols-1 lg:grid-cols-2'> 
       {
        // eslint-disable-next-line react/jsx-key
-       toys?.map(toy=><Toy key={toy._id} toy={toy}></Toy>)
+       toys?.slice(0,2).map(toy=><Toy key={toy._id} toy={toy}></Toy>)
 
         }
       
