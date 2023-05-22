@@ -6,6 +6,9 @@ import Swal from 'sweetalert2';
 const Mytoys = () => {
     const {user}=useContext(AuthContext)
     const [toys,setToys]=useState([])
+    
+
+  
 
     useEffect(()=>{
         fetch(`http://localhost:5000/toys/?email=${user?.email}`)
@@ -49,33 +52,7 @@ const Mytoys = () => {
     });
   };
 
-  const handleConfirm= id =>{
-    fetch(`http://localhost:5000/toys/${id}`,{
-      method:'PATCH',
-      headers:{
-        'content-type':'application/json'
-      },
-      body:JSON.stringify({status:'confirm'})
-    })
-    .then(res=>res.json())
-    .then(data=>{
-      console.log(data);
-      if(data.modifiedCount>0){
-    
-        Swal.fire({
-          title: 'Success!',
-          text: 'User updated successfully',
-          icon: 'success',
-          confirmButtonText: 'Cool'
-        })
-        const remaining=toys.filter(toyes=>toyes._id!==id);
-        const updated=toys.find(toyes=>toyes._id===id);
-        updated.status='confirm status'
-        const newToyes=[updated,...remaining]
-        setToys(newToyes);
-      }
-    })
-  }
+ 
     return (
         <div className="overflow-x-auto w-full">
           <h2 className='text-3xl text-indigo-950 font-bold text-center mt-14'>My Selected Toys</h2>
@@ -102,7 +79,7 @@ const Mytoys = () => {
     <tbody>
   
      {
-      toys.map(toy=><Mytoystable key={toy._id}toy={toy}handleDelete={handleDelete}handleConfirm={handleConfirm}></Mytoystable>)
+      toys.map(toy=><Mytoystable key={toy._id}toy={toy}handleDelete={handleDelete}></Mytoystable>)
      }     
     </tbody>
   </table>
