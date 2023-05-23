@@ -41,18 +41,7 @@ const Header = () => {
                       
                     }
                 </div> 
-{/*               
-                <div className="flex-none gap-2">
-                   
-                    <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className='w-14 rounded-full'>
-                               
-                            </div> 
-                        </label>
-                    </div> 
-                   
-             </div> */}
+
             </nav>
         </>
     );
