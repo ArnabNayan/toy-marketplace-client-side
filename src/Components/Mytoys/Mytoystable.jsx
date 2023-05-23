@@ -148,8 +148,12 @@ const Mytoystable = ({toy,handleDelete}) => {
         </td>
       )}
     </tr>
+
   );
 };
+
+
+
 
 export default Mytoystable;
 

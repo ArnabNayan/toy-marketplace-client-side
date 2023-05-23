@@ -17,6 +17,8 @@ import AddToy from './Components/AddToy/AddToy.jsx';
 import Mytoys from './Components/Mytoys/Mytoys.jsx';
 import PrivateRoute from './Components/Routes/PrivateRoute.jsx';
 import Alltoys from './Components/Alltoys/Alltoys.jsx';
+import AllToyDetails from './Components/AllToyDetails/AllToyDetails.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -51,9 +53,15 @@ const router = createBrowserRouter([
       {
         path:"alltoys",
         element:<Alltoys></Alltoys>
+      },
+      {
+        path:"details/:name",
+        element:<AllToyDetails></AllToyDetails>
+       
       }
-    ]
-  },
+    ]  
+    
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -61,3 +69,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthProvider><RouterProvider router={router} /></AuthProvider>
   </React.StrictMode>,
 )
+

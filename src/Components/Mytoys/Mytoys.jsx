@@ -56,7 +56,7 @@ const Mytoys = () => {
     return (
         <div className="overflow-x-auto w-full">
           <h2 className='text-3xl text-indigo-950 font-bold text-center mt-14'>My Selected Toys</h2>
-  <table className="table w-full mt-14 bg ">
+  <table className="table w-full mt-14  ">
 
     <thead>
       <tr>
