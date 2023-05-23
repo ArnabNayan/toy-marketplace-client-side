@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 const Toy = ({toy}) => {
@@ -12,7 +13,7 @@ const Toy = ({toy}) => {
                       <h1 className="text-3xl font-bold">{name}</h1>
                       <p className='py-4'>Price:{price}</p>
                       <p>Rating:{rating}</p>
-                      <button className="btn btn-secondary mt-4">View Details</button>
+                      <Link to={`/details/${encodeURIComponent(name)}`}><button className="btn btn-secondary mt-4">View Details</button></Link>
                     </div>
                   </div>
                 </div>

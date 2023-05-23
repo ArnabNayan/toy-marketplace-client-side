@@ -30,14 +30,14 @@ const Header = () => {
                     <Link to='/blog'>Blog</Link>
                     <Link to='/alltoys'>All Toys</Link>
                    
-                 
+                 <Link to='/login'>Login</Link>
 
                     {
-                        user?.email ? <>
+                        user?.email && <>
                         <Link to='/addtoy'>Add a toy</Link>
                      <Link to='/mytoys'>My Toys</Link>
                        <button onClick={handleLogOut}>Sign Out</button>  
-                        <img className="w-14 rounded-full lg:ms-36"src="/images/client3.png" /> </> :<Link to='/login'>Login</Link>
+                        <img className="w-14 rounded-full lg:ms-36"src="/images/client3.png" /> </> 
                       
                     }
                 </div> 

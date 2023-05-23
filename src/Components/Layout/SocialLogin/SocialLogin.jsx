@@ -2,13 +2,16 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { FaGoogle} from "react-icons/fa";
 
+
 const SocialLogin = () => {
     const {googleSignIn}=useContext(AuthContext);
+   
     const handleGoogleSignIn=()=>{
         googleSignIn()
         .then(result=>{
             const googleUser=result.user
             console.log(googleUser)
+            navigate(from,{replace:true})
         })
         .catch(error=>{
             console.log(error)
