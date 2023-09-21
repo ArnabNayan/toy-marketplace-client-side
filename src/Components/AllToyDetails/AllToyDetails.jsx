@@ -6,7 +6,7 @@ const AllToyDetails = () => {
     const {name}=useParams()
     const [detailToys,setDetailToys]=useState({})
     useEffect(()=>{
-        fetch(`http://localhost:5000/toys/${encodeURIComponent(name)}`)
+        fetch(`https://b7a11-toy-marketplace-server-side-arnab-nayan.vercel.app/toys/${encodeURIComponent(name)}`)
         .then(res=>res.json())
         .then(data=>{
             setDetailToys(data[0])

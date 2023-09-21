@@ -25,7 +25,7 @@ const Mytoystable = ({toy,handleDelete}) => {
     
       try {
        
-        const response = await fetch(`http://localhost:5000/toys/${_id}`, {
+        const response = await fetch(`https://b7a11-toy-marketplace-server-side-arnab-nayan.vercel.app/toys/${_id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json'

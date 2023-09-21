@@ -18,7 +18,7 @@ const AddToy = () => {
         const description=form.description.value;
         const newToys={name,sellername,selleremail,subCategory,price, quantity,rating,photo,description}
         console.log(newToys)
-          fetch("http://localhost:5000/addtoy",{
+          fetch('https://b7a11-toy-marketplace-server-side-arnab-nayan.vercel.app/addtoy',{
           method:"POST",
           headers:{
             "content-type":"application/json"

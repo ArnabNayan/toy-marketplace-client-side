@@ -7,7 +7,7 @@ const ShopByCategory = () => {
   const [activeTab,setActiveTab] = useState("avengers");
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/toys/${activeTab}`)
+    fetch(`https://b7a11-toy-marketplace-server-side-arnab-nayan.vercel.app/toys/${activeTab}`)
     .then(res=>res.json())
     .then(result=>{
       setToys(result)
@@ -20,7 +20,7 @@ const ShopByCategory = () => {
 
   return (
     <div className='text-center'>
-      <h2 className='text-5xl text-indigo-950 font-bold text-center mt-14'>Action Figure Toys</h2>
+      <h2 className='text-4xl text-indigo-950 font-bold text-center mt-14'>Action Figure Toys</h2>
       <div className='tab-container text-center'>
         <div className='text-center mx-auto w-100'>
           <div className='tabs d-flex gap-4 items-center justify-center mt-10 bordered'>

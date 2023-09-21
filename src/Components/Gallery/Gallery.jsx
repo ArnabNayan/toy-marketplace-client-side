@@ -4,7 +4,7 @@ import React from 'react';
 const Gallery = () => {
     return (
        <>
-          <h2 className='text-5xl mt-14 text-indigo-950 font-bold text-center'>Our Photo Gallery</h2> 
+          <h2 className='text-4xl mt-5 text-indigo-950 font-bold text-center'>Our Photo Gallery</h2> 
           <div className="h-96 carousel carousel-horizontal lg:carousel-vertical  rounded-box mt-8 bg-slate-300">
   <div className="carousel-item h-full gap-4">
     <img src="https://www.fnp.com/images/pr/x/v20200817204537/kids-avengers-action-figure-toy-spiderman-red_5.jpg" />
